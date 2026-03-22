@@ -1,0 +1,37 @@
+{
+  "name": "@lpieces-ui/workspace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.20.0",
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.12",
+    "@types/node": "^24.12.0",
+    "@vitejs/plugin-vue": "^6.0.5",
+    "@vitejs/plugin-vue-jsx": "^5.1.5",
+    "@vue/tsconfig": "^0.9.0",
+    "postcss-color-mix": "^1.1.0",
+    "postcss-each": "^1.1.0",
+    "postcss-each-variables": "^0.3.0",
+    "postcss-for": "^2.1.1",
+    "postcss-nested": "^7.0.2",
+    "typescript": "~5.9.3",
+    "vite": "^8.0.1",
+    "vtest": "^1.1.0",
+    "vue-tsc": "^3.2.6"
+  },
+  "dependencies": {
+    "lodash-es": "^4.17.23",
+    "vue": "^3.5.30",
+    "lpieces-ui": "workspace:*",
+    "@lpieces-ui/hooks": "workspace:*",
+    "@lpieces-ui/utils": "workspace:*",
+    "@lpieces-ui/theme": "workspace:*"
+  }
+}
