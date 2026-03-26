@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "pnpm --filter @lpieces-ui/play dev",
+    "docs:dev": "pnpm --filter @lpieces-ui/docs dev",
+    "docs:build": "pnpm --filter @lpieces-ui/docs build",
+    "docs:preview": "pnpm --filter @lpieces-ui/docs preview",
+    "test": "echo 'todo'"
   },
   "keywords": [],
   "author": "",

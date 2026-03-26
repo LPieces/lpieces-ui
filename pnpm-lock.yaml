@@ -104,10 +104,6 @@ importers:
   packages/hooks: {}
 
   packages/play:
-    dependencies:
-      vue:
-        specifier: ^3.5.30
-        version: 3.5.30(typescript@5.9.3)
     devDependencies:
       '@types/node':
         specifier: ^24.12.0
@@ -118,15 +114,6 @@ importers:
       '@vue/tsconfig':
         specifier: ^0.9.0
         version: 0.9.0(typescript@5.9.3)(vue@3.5.30(typescript@5.9.3))
-      typescript:
-        specifier: ~5.9.3
-        version: 5.9.3
-      vite:
-        specifier: ^8.0.1
-        version: 8.0.1(@types/node@24.12.0)
-      vue-tsc:
-        specifier: ^3.2.5
-        version: 3.2.6(typescript@5.9.3)
 
   packages/theme: {}
 

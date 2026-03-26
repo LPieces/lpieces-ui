@@ -1,7 +1,5 @@
 <template>
-    <button>
-        a
-    </button>
+    <button><slot></slot></button>
 </template>
 <script setup lang="ts">
 defineOptions({
