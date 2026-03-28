@@ -1,1 +1,67 @@
 @import './reset.css';
+
+:root {
+  /* colors */
+  --lp-color-white: #ffffff;
+  --lp-color-black: #000000;
+  --colors: (primary: #409eff, success: #67c23a, warning: #e6a23c, danger: #f56c6c, info: #909399);
+  --lp-bg-color: #ffffff;
+  --lp-bg-color-page: #f2f3f5;
+  --lp-bg-color-overlay: #ffffff;
+  --lp-text-color-primary: #303133;
+  --lp-text-color-regular: #606266;
+  --lp-text-color-secondary: #909399;
+  --lp-text-color-placeholder: #a8abb2;
+  --lp-text-color-disabled: #c0c4cc;
+  --lp-border-color: #dcdfe6;
+  --lp-border-color-light: #e4e7ed;
+  --lp-border-color-lighter: #ebeef5;
+  --lp-border-color-extra-light: #f2f6fc;
+  --lp-border-color-dark: #d4d7de;
+  --lp-border-color-darker: #cdd0d6;
+  --lp-fill-color: #f0f2f5;
+  --lp-fill-color-light: #f5f7fa;
+  --lp-fill-color-lighter: #fafafa;
+  --lp-fill-color-extra-light: #fafcff;
+  --lp-fill-color-dark: #ebedf0;
+  --lp-fill-color-darker: #e6e8eb;
+  --lp-fill-color-blank: #ffffff;
+  
+  @each $val, $color in var(--colors) {
+    --lp-color-$(val): $(color);
+    @for $i from 3 to 9 {
+      --lp-color-$(val)-light-$(i): mix(#fff, $(color), 0.$(i));
+    }
+    --lp-color-$(val)-dark-2: mix(#000, $(color), 0.2);
+  }
+
+  /* border */
+  --lp-border-width: 1px;
+  --lp-border-style: solid;
+  --lp-border-color-hover: var(--lp-text-color-disabled);
+  --lp-border: var(--lp-border-width) var(--lp-border-style) var(--lp-border-color);
+  --lp-border-radius-base: 4px;
+  --lp-border-radius-small: 2px;
+  --lp-border-radius-round: 20px;
+  --lp-border-radius-circle: 100%;
+
+  /*font*/
+  --lp-font-size-extra-large: 20px;
+  --lp-font-size-large: 18px;
+  --lp-font-size-medium: 16px;
+  --lp-font-size-base: 14px;
+  --lp-font-size-small: 13px;
+  --lp-font-size-extra-small: 12px;
+  --lp-font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', '\5fae\8f6f\96c5\9ed1', Arial, sans-serif;
+  --lp-font-weight-primary: 500;
+
+  /*disabled*/
+  --lp-disabled-bg-color: var(--lp-fill-color-light);
+  --lp-disabled-text-color: var(--lp-text-color-placeholder);
+  --lp-disabled-border-color: var(--lp-border-color-light);
+
+  /*animation*/
+  --lp-transition-duration: 0.4s;
+  --lp-transition-duration-fast: 0.2s;
+}

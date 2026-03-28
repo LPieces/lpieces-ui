@@ -1,0 +1,199 @@
+.lp-button-group {
+  --lp-button-group-border-color: var(--lp-border-color-lighter);
+}
+.lp-button {
+  --lp-button-font-weight: var(--lp-font-weight-primary);
+  --lp-button-border-color: var(--lp-border-color);
+  --lp-button-bg-color: var(--lp-fill-color-blank);
+  --lp-button-text-color: var(--lp-text-color-regular);
+  --lp-button-disabled-text-color: var(--lp-disabled-text-color);
+  --lp-button-disabled-bg-color: var(--lp-fill-color-blank);
+  --lp-button-disabled-border-color: var(--lp-border-color-light);
+  --lp-button-hover-text-color: var(--lp-color-primary);
+  --lp-button-hover-bg-color: var(--lp-color-primary-light-9);
+  --lp-button-hover-border-color: var(--lp-color-primary-light-7);
+  --lp-button-active-text-color: var(--lp-button-hover-text-color);
+  --lp-button-active-border-color: var(--lp-color-primary);
+  --lp-button-active-bg-color: var(--lp-button-hover-bg-color);
+  --lp-button-outline-color: var(--lp-color-primary-light-5);
+  --lp-button-active-color: var(--lp-text-color-primary);
+}
+
+.lp-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  height: 32px;
+  white-space: nowrap;
+  cursor: pointer;
+  color: var(--lp-button-text-color);
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  transition: 0.1s;
+  font-weight: var(--lp-button-font-weight);
+  user-select: none;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  background-color: var(--lp-button-bg-color);
+  border: var(--lp-border);
+  border-color: var(--lp-button-border-color);
+  padding: 8px 15px;
+  font-size: var(--lp-font-size-base);
+  border-radius: var(--lp-border-radius-base);
+  & + & {
+    margin-left: 12px;
+  }
+  &:hover,
+  &:focus {
+    color: var(--lp-button-hover-text-color);
+    border-color: var(--lp-button-hover-border-color);
+    background-color: var(--lp-button-hover-bg-color);
+    outline: none;
+  }
+  &:active {
+    color: var(--lp-button-active-text-color);
+    border-color: var(--lp-button-active-border-color);
+    background-color: var(--lp-button-active-bg-color);
+    outline: none;
+  }
+  /*plain*/
+  &.is-plain {
+    --lp-button-hover-text-color: var(--lp-color-primary);
+    --lp-button-hover-bg-color: var(--lp-fill-color-blank);
+    --lp-button-hover-border-color: var(--lp-color-primary);
+  }
+  /*round*/
+  &.is-round {
+    border-radius: var(--lp-border-radius-round);
+  }
+  /*circle*/
+  &.is-circle {
+    border-radius: 50%;
+    padding: 8px;
+  }
+  /*disabled*/
+  &.is-loading,
+  &.is-disabled,
+  &.is-disabled:hover,
+  &.is-disabled:focus,
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:focus {
+    color: var(--lp-button-disabled-text-color);
+    cursor: not-allowed;
+    background-image: none;
+    background-color: var(--lp-button-disabled-bg-color);
+    border-color: var(--lp-button-disabled-border-color);
+  }
+  [class*='er-icon'] {
+    width: 1em;
+    height: 1em;
+  }
+}
+@each $val in primary, success, warning, info, danger {
+  .lp-button--$(val) {
+    --lp-button-text-color: var(--lp-color-white);
+    --lp-button-bg-color: var(--lp-color-$(val));
+    --lp-button-border-color: var(--lp-color-$(val));
+    --lp-button-outline-color: var(--lp-color-$(val)-light-5);
+    --lp-button-active-color: var(--lp-color-$(val)-dark-2);
+    --lp-button-hover-text-color: var(--lp-color-white);
+    --lp-button-hover-bg-color: var(--lp-color-$(val)-light-3);
+    --lp-button-hover-border-color: var(--lp-color-$(val)-light-3);
+    --lp-button-active-bg-color: var(--lp-color-$(val)-dark-2);
+    --lp-button-active-border-color: var(--lp-color-$(val)-dark-2);
+    --lp-button-disabled-text-color: var(--lp-color-white);
+    --lp-button-disabled-bg-color: var(--lp-color-$(val)-light-5);
+    --lp-button-disabled-border-color: var(--lp-color-$(val)-light-5);
+  }
+  .lp-button--$(val).is-plain {
+    --lp-button-text-color: var(--lp-color-$(val));
+    --lp-button-bg-color: var(--lp-color-$(val)-light-9);
+    --lp-button-border-color: var(--lp-color-$(val)-light-5);
+    --lp-button-hover-text-color: var(--lp-color-white);
+    --lp-button-hover-bg-color: var(--lp-color-$(val));
+    --lp-button-hover-border-color: var(--lp-color-$(val));
+    --lp-button-active-text-color: var(--lp-color-white);
+
+    --lp-button-disabled-text-color: var(--lp-color-$(val)-light-5);
+    --lp-button-disabled-bg-color: var(--lp-color-$(val)-light-9);
+    --lp-button-disabled-border-color: var(--lp-color-$(val)-light-8);
+  }
+}
+.lp-button--large {
+  --lp-button-size: 40px;
+  height: var(--lp-button-size);
+  padding: 12px 19px;
+  font-size: var(--lp-font-size-base);
+  border-radius: var(--lp-border-radius-base);
+  /*circle*/
+  &.is-circle {
+    border-radius: 50%;
+    padding: 12px;
+  }
+}
+.lp-button--small {
+  --lp-button-size: 24px;
+  height: var(--lp-button-size);
+  padding: 5px 11px;
+  font-size: 12px;
+  border-radius: calc(var(--lp-border-radius-base) - 1px);
+  /*circle*/
+  &.is-circle {
+    border-radius: 50%;
+    padding: 5px;
+  }
+  [class*='er-icon'] {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.lp-button-group {
+  display: inline-block;
+  vertical-align: middle;
+
+  &::after {
+    clear: both;
+  }
+  & > :deep(.lp-button){
+    float: left;
+    position: relative;
+    margin-left: 0;
+    &:first-child{
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right-color: var(--lp-button-group-border-color);
+    }
+    &:last-child{
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0; 
+      border-left-color: var(--lp-button-group-border-color);
+    }
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+
+      border-left-color: var(--lp-button-group-border-color);
+      border-right-color: var(--lp-button-group-border-color);
+    }
+    &:not(:last-child) {
+      margin-right: -1px;
+    }
+    &:first-child:last-child {
+      border-top-right-radius: var(--lp-border-radius-base);
+      border-bottom-right-radius: var(--lp-border-radius-base);
+      border-top-left-radius: var(--lp-border-radius-base);
+      border-bottom-left-radius: var(--lp-border-radius-base);
+
+      &.is-round {
+        border-radius: var(--lp-border-radius-round);
+      }
+
+      &.is-circle {
+        border-radius: 50%;
+      }
+    }
+  }
+}

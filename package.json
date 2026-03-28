@@ -8,7 +8,7 @@
     "docs:dev": "pnpm --filter @lpieces-ui/docs dev",
     "docs:build": "pnpm --filter @lpieces-ui/docs build",
     "docs:preview": "pnpm --filter @lpieces-ui/docs preview",
-    "test": "echo 'todo'"
+    "test": "pnpm --filter @lpieces-ui/components test"
   },
   "keywords": [],
   "author": "",
@@ -27,15 +27,15 @@
     "postcss-nested": "^7.0.2",
     "typescript": "~5.9.3",
     "vite": "^8.0.1",
-    "vtest": "^1.1.0",
+    "vitest": "^4.1.2",
     "vue-tsc": "^3.2.6"
   },
   "dependencies": {
-    "lodash-es": "^4.17.23",
-    "vue": "^3.5.30",
-    "lpieces-ui": "workspace:*",
     "@lpieces-ui/hooks": "workspace:*",
+    "@lpieces-ui/theme": "workspace:*",
     "@lpieces-ui/utils": "workspace:*",
-    "@lpieces-ui/theme": "workspace:*"
+    "lodash-es": "^4.17.23",
+    "lpieces-ui": "workspace:*",
+    "vue": "^3.5.30"
   }
 }

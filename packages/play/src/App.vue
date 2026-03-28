@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+
 </script>
 
 <template>
-  <HelloWorld />
+  <LpButton type="primary" size="small">主要按钮</LpButton>
 </template>
