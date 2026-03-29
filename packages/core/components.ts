@@ -1,6 +1,7 @@
-import { LpButton } from '@lpieces-ui/components'
+import { LpButton, LpIcon } from '@lpieces-ui/components'
 import type { Plugin } from 'vue'
 
 export default [
-    LpButton
+    LpButton,
+    LpIcon
 ] as Plugin[]

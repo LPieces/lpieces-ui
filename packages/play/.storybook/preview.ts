@@ -1,4 +1,14 @@
 import type { Preview } from '@storybook/vue3-vite'
+// .storybook/preview.ts
+import { setup } from '@storybook/vue3-vite'
+import { LpButton } from 'lpieces-ui'
+
+// 优雅地全局注册组件，并保持组件名
+setup((app) => {
+  // 保留原始组件，同时注册 kebab-case 版本
+  app.component('LpButton', LpButton)
+  app.component('lp-button', LpButton)
+})
 
 const preview: Preview = {
   parameters: {

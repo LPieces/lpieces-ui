@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "pnpm --filter @lpieces-ui/play dev",
+    "story": "pnpm --filter @lpieces-ui/play storybook",
     "docs:dev": "pnpm --filter @lpieces-ui/docs dev",
     "docs:build": "pnpm --filter @lpieces-ui/docs build",
     "docs:preview": "pnpm --filter @lpieces-ui/docs preview",
@@ -20,6 +21,9 @@
     "@vitejs/plugin-vue": "^6.0.5",
     "@vitejs/plugin-vue-jsx": "^5.1.5",
     "@vue/tsconfig": "^0.9.0",
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/vue-fontawesome": "^3.0.6",
     "postcss-color-mix": "^1.1.0",
     "postcss-each": "^1.1.0",
     "postcss-each-variables": "^0.3.0",
