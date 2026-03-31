@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "LPieces-UI"
-  text: "A Vue3 Components"
+  text: "A Vue3 Component Library"
   tagline: My great project tagline
   actions:
     - theme: brand
@@ -22,4 +22,3 @@ features:
   - title: Feature C
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
-

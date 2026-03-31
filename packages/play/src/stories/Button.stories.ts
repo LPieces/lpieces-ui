@@ -1,12 +1,12 @@
 import type { Meta, StoryObj, ArgTypes } from '@storybook/vue3-vite'
-import { fn } from 'storybook/test'
+import { expect, userEvent, within, fn } from '@storybook/test'
 
 import { LpButton } from 'lpieces-ui'
 
-type Story = StoryObj<typeof LpButton> & { argTypes: ArgTypes }
+type Story = StoryObj<typeof LpButton> & { argTypes?: ArgTypes }
 
 const meta: Meta<typeof LpButton> = {
-  title: 'Example/Button',
+  title: 'Components/Button 按钮',
   component: LpButton,
    tags: ['autodocs'],
   argTypes: {
@@ -71,6 +71,39 @@ export const Default: Story & {args:{content: string}} = {
       `<lp-button v-bind="args">{{args.content}}</lp-button>`
     ),
   }),
+  
+  play: async ({ canvasElement, args, step }: { canvasElement: HTMLElement, args: any, step: any }) => {
+    const canvas = within(canvasElement);
+    await step("click button", async () => {
+      await userEvent.click(canvas.getByText("Button"));
+    });
+    expect(args.onClick).toHaveBeenCalled();
+  },
+
 }
+
+export const Circle: Story = {
+  args: {
+    icon: "search",
+  },
+  render: (args: { icon: string }) => ({
+    components: { LpButton },
+    setup() {
+      return { args };
+    },
+    template: container(`
+      <lp-button circle v-bind="args"/>
+    `),
+  }),
+  play: async ({ canvasElement, args, step }: { canvasElement: HTMLElement, args: any, step: any }) => {
+    const canvas = within(canvasElement);
+    await step("click button", async () => {
+      await userEvent.click(canvas.getByRole("Button"));
+    });
+
+    expect(args.onClick).toHaveBeenCalled();
+  },
+};
+
 
 export default meta

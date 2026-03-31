@@ -15,7 +15,7 @@ const customStyles = computed(() => ({ color: props.color ?? void 0 }))
 
 <template>
     <i
-    :class=" [`lp-icon-${props.type}`]"
+    :class=" [`lp-icon--${props.type}`]"
     :style="customStyles"
     v-bind="$attrs"
     >

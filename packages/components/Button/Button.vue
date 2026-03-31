@@ -46,7 +46,7 @@ const hasDefaultSlot = computed(() => {
 const iconStyle = computed(() => ({ marginRight: hasDefaultSlot.value ? '4px' : '0' }))
 
 const handleButtonClick = (e: MouseEvent) => emits('click', e)
-const handleButtonClickThrottle = throttle(handleButtonClick, props.throttleDuration)
+const handleButtonClickThrottle = throttle(handleButtonClick, props.throttleDuration, { trailing: false })
 
 defineExpose<ButtonInstance>({
     ref: _ref,
