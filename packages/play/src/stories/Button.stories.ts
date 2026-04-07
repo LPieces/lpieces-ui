@@ -1,7 +1,7 @@
 import type { Meta, StoryObj, ArgTypes } from '@storybook/vue3-vite'
 import { expect, userEvent, within, fn } from '@storybook/test'
 
-import { LpButton } from 'lpieces-ui'
+import { LpButton, LpButtonGroup } from 'lpieces-ui'
 
 type Story = StoryObj<typeof LpButton> & { argTypes?: ArgTypes }
 
@@ -101,6 +101,57 @@ export const Circle: Story = {
       await userEvent.click(canvas.getByRole("Button"));
     });
 
+    expect(args.onClick).toHaveBeenCalled();
+  },
+};
+
+export const Group: Story & { args: { content1: string; content2: string } } = {
+  argTypes: {
+    groupType: {
+      control: { type: "select" },
+      options: ["primary", "success", "warning", "danger", "info", ""],
+    },
+    groupSize: {
+      control: { type: "select" },
+      options: ["large", "default", "small", ""],
+    },
+    groupDisabled: {
+      control: "boolean",
+    },
+    content1: {
+      control: { type: "text" },
+      defaultValue: "Button1",
+    },
+    content2: {
+      control: { type: "text" },
+      defaultValue: "Button2",
+    },
+  },
+  args: {
+    round: true,
+    content1: "Button1",
+    content2: "Button2",
+  },
+  render: (args: { groupType: string; groupSize: string; groupDisabled: boolean; content1: string; content2: string }) => ({
+    components: { LpButton, LpButtonGroup },
+    setup() {
+      return { args };
+    },
+    template: container(`
+       <lp-button-group :type="args.groupType" :size="args.groupSize" :disabled="args.groupDisabled">
+         <lp-button v-bind="args">{{args.content1}}</lp-button>
+         <lp-button v-bind="args">{{args.content2}}</lp-button>
+       </lp-button-group>
+    `),
+  }),
+  play: async ({ canvasElement, args, step }: { canvasElement: HTMLElement, args: any, step: any }) => {
+    const canvas = within(canvasElement);
+    await step("click btn1", async () => {
+      await userEvent.click(canvas.getByText("Button1"));
+    });
+    await step("click btn2", async () => {
+      await userEvent.click(canvas.getByText("Button2"));
+    });
     expect(args.onClick).toHaveBeenCalled();
   },
 };

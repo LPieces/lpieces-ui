@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import type { ButtonProps, ButtonEmits, ButtonInstance } from "./types";
-import { computed, ref } from "vue";
+import { computed, ref, inject } from "vue";
 import { throttle } from 'lodash-es'
+import { BUTTON_GROUP_CONTEXT_KEY } from './contants'
 import LpIcon from '../Icon/Icon.vue'
 
 defineOptions({
@@ -27,6 +28,11 @@ const emits = defineEmits<ButtonEmits>()
 const slots = defineSlots()
 
 const _ref = ref<HTMLButtonElement>()
+
+const ctx = inject(BUTTON_GROUP_CONTEXT_KEY)
+const size = computed(() => ctx?.size ?? props?.size ?? '')
+const type = computed(() => ctx?.type ?? props?.type ?? '')
+const disabled = computed(() => ctx?.disabled || props?.disabled || false)
 
 // 判断是否有默认槽位，以及默认槽位是否有内容
 const hasDefaultSlot = computed(() => {
