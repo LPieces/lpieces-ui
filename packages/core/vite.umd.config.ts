@@ -10,6 +10,7 @@ export default defineConfig({
       entry: resolve(__dirname, './index.ts'),
       name: 'LPieces-UI',
       fileName: 'index',
+      formats: ['umd'],
     },
     rolldownOptions: {
       external: ['vue'],

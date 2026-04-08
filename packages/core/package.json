@@ -1,16 +1,51 @@
 {
   "name": "lpieces-ui",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "build:umd": "vite build --config vite.umd.config.ts"
+  "description": "Components library by Vue3 + TS",
+  "type": "module",
+  "main": "./dist/umd/index.umd.cjs",
+  "module": "./dist/es/index.js",
+  "types": "./dist/types/core/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/es/index.js",
+      "require": "./dist/umd/index.umd.cjs",
+      "types": "./dist/types/core/index.d.ts"
+    },
+    "./dist/": {
+      "import": "./dist/",
+      "require": "./dist/"
+    }
   },
-  "dependencies": {
-    "@lpieces-ui/components": "workspace:*"
+  "sideEffects": [
+    "./dist/index.css"
+  ],
+  "scripts": {
+    "build": "run-s build:only move:types",
+    "build:only": "run-p build:umd build:es",
+    "build:umd": "vite build --config vite.umd.config.ts",
+    "build:es": "vite build --config vite.es.config.ts",
+    "move:types": "move-file dist/es/index.css dist/index.css"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.20.0"
+  "packageManager": "pnpm@10.20.0",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/vue-fontawesome": "^3.0.6",
+    "@popperjs/core": "^2.11.8",
+    "async-validator": "^4.2.5"
+  },
+  "devDependencies": {
+    "vite-plugin-dts": "^4.5.4",
+    "@lpieces-ui/components": "workspace:*"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.30"
+  }
 }

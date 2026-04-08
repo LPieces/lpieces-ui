@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { ButtonGroupContext, ButtonGroupProps } from './types'
-import { provide, reactive, toRef } from 'vue'
+import { provide, reactive } from 'vue'
 import { BUTTON_GROUP_CONTEXT_KEY } from './contants'
 
 defineOptions({
