@@ -47,6 +47,9 @@ jobs:
       - name: Build docs
         run: npm run docs:build
 
+      - name: Copy CNAME to dist
+        run: cp ./packages/docs/CNAME ./packages/docs/.vitepress/dist/CNAME
+
       - name: Upload docs
         uses: actions/upload-artifact@v4
         with:
