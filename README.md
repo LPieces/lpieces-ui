@@ -1,5 +1,7 @@
 # LPieces-UI
 
+![CI](https://github.com/lpieces/lpieces-ui/actions/workflows/test-and-deploy.yaml/badge.svg)
+
 Vue3 + TS 高仿 ElementPlus 打造自己的组件库
 
 一款功能全面、易用性强、文档丰富的UI组件库，完美兼容Element Plus，为开发者提供高效的界面构建解决方案。

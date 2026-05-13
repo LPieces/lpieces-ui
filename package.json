@@ -42,11 +42,11 @@
     "vue-tsc": "^3.2.6"
   },
   "dependencies": {
+    "lodash-es": "^4.17.23",
+    "vue": "^3.5.30",
+    "lpieces-ui": "workspace:*",
     "@lpieces-ui/hooks": "workspace:*",
     "@lpieces-ui/theme": "workspace:*",
-    "@lpieces-ui/utils": "workspace:*",
-    "lodash-es": "^4.17.23",
-    "lpieces-ui": "workspace:*",
-    "vue": "^3.5.30"
+    "@lpieces-ui/utils": "workspace:*"
   }
 }
